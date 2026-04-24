@@ -1,8 +1,4 @@
 const express = require('express');
-// ============================================
-// SIMULAÇÃO DO BANCO DE DADOS - E-LASSES
-// Coloque este ARRAY no início da sua API
-// ============================================
 
 const bancoSimulado = {
     // Tabela Alunos
