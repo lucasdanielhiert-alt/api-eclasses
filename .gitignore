@@ -1,35 +1,50 @@
-# Dependências
+# ==================== DEPENDÊNCIAS ====================
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Arquivos de ambiente (senhas, chaves, etc)
+# ==================== ARQUIVOS DE AMBIENTE ====================
 .env
 .env.local
+.env.development
 .env.production
+.env.test
 
-# Logs
+# ==================== LOGS ====================
 logs/
 *.log
+npm-debug.log
+yarn-debug.log
 
-# Diretórios temporários
-tmp/
+# ==================== CACHE E TEMPORÁRIOS ====================
+.tmp/
 temp/
+coverage/
+*.cache
 
-# Cache do VS Code
+# ==================== EDITORES E IDEs ====================
 .vscode/
-*.code-workspace
+.idea/
+*.swp
+*.swo
+*~
 
-# Cache do sistema operacional
+# ==================== SISTEMA OPERACIONAL ====================
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Arquivos gerados pelo Node
+# ==================== ARQUIVOS DO NODE ====================
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
-# Pastas desnecessárias
+# ==================== PASTAS DE BUILD ====================
 dist/
 build/
-coverage/
+out/
+
+# ==================== OUTROS ====================
+.gitignore.backup
