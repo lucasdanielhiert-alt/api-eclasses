@@ -31,32 +31,27 @@ const bancoSimulado = {
         { id_modalidade: 4, nome_jogo: "Free Fire" }
     ],
 
-    partidas: [
-        {
-            id_partida: "550e8400-e29b-41d4-a716-446655440000",
-            id_equipe1: 1,
-            id_equipe2: 2,
-            id_modalidade: 1,
-            data_hora_inicio: 1704067200000,
-            data_hora_fim: 1704074400000,
-            id_equipe_vencedora: 1
-        }
-    ],
-    // ... (disputam, participam, possuem) - posso adicionar depois se precisar
+    partidas: [{
+        id_partida: "550e8400-e29b-41d4-a716-446655440000",
+        id_equipe1: 1,
+        id_equipe2: 2,
+        id_modalidade: 1,
+        data_hora_inicio: 1704067200000,
+        data_hora_fim: 1704074400000,
+        id_equipe_vencedora: 1
+    }]
 };
 
 // ====================== MIDDLEWARES ======================
-app.use(cors());                    // ← Muito importante!
+app.use(cors());
 app.use(express.json());
 
 // ====================== ROTAS ======================
 
-// Rota de teste
 app.get('/', (req, res) => {
     res.send('API E-Classes rodando com sucesso! 🚀');
 });
 
-// Rotas do banco simulado
 app.get('/alunos', (req, res) => {
     res.json(bancoSimulado.alunos);
 });
@@ -73,11 +68,25 @@ app.get('/partidas', (req, res) => {
     res.json(bancoSimulado.partidas);
 });
 
-// Rotas dos usuários (mantive as que você já tinha)
-app.get('/users', (req, res) => res.json(users));
-app.post('/users', ...); // pode manter o resto
+// Rotas de usuários (mantidas)
+let users = [
+    { id: 1, name: "João", email: "joao@email.com" },
+    { id: 2, name: "Maria", email: "maria@email.com" }
+];
 
-// ====================== SERVIDOR ======================
+app.get('/users', (req, res) => res.json(users));
+
+app.post('/users', (req, res) => {
+    const { name, email } = req.body;
+    if (!name || !email) {
+        return res.status(400).json({ message: "Nome e email são obrigatórios" });
+    }
+    const newUser = { id: users.length + 1, name, email };
+    users.push(newUser);
+    res.status(201).json(newUser);
+});
+
+// ====================== INICIAR SERVIDOR ======================
 app.listen(PORT, () => {
     console.log(`✅ API E-Classes rodando em http://localhost:${PORT}`);
 });
