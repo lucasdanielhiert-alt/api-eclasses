@@ -68,24 +68,6 @@ app.get('/partidas', (req, res) => {
     res.json(bancoSimulado.partidas);
 });
 
-// Rotas de usuários (mantidas)
-let users = [
-    { id: 1, name: "João", email: "joao@email.com" },
-    { id: 2, name: "Maria", email: "maria@email.com" }
-];
-
-app.get('/users', (req, res) => res.json(users));
-
-app.post('/users', (req, res) => {
-    const { name, email } = req.body;
-    if (!name || !email) {
-        return res.status(400).json({ message: "Nome e email são obrigatórios" });
-    }
-    const newUser = { id: users.length + 1, name, email };
-    users.push(newUser);
-    res.status(201).json(newUser);
-});
-
 // ====================== INICIAR SERVIDOR ======================
 app.listen(PORT, () => {
     console.log(`✅ API E-Classes rodando em http://localhost:${PORT}`);
