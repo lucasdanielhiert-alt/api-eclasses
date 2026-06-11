@@ -1,0 +1,50 @@
+# ==================== DEPENDÊNCIAS ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==================== ARQUIVOS DE AMBIENTE ====================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# ==================== LOGS ====================
+logs/
+*.log
+npm-debug.log
+yarn-debug.log
+
+# ==================== CACHE E TEMPORÁRIOS ====================
+.tmp/
+temp/
+coverage/
+*.cache
+
+# ==================== EDITORES E IDEs ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ==================== SISTEMA OPERACIONAL ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==================== ARQUIVOS DO NODE ====================
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ==================== PASTAS DE BUILD ====================
+dist/
+build/
+out/
+
+# ==================== OUTROS ====================
+.gitignore.backup
